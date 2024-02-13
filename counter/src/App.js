@@ -22,24 +22,36 @@ function App() {
   ];
 
   const [steps, setSteps] = useState(1);
-  const [date, setDate] = useState([dateHandler()]);
+  const [date, setDate] = useState(dateHandler(0));
 
   function dateHandler(count) {
     let date = new Date();
     let change = count || 0;
 
-    let dayInMonth = date.getDate() + change;
-
-    if (change + date.getDay() >= 7) {
-      console.log(change + date.getDay());
-      change = change % 7;
+    if (change < 0) {
+      change = 0;
+      count = 0;
     }
 
-    let day = days[date.getDay() - 1 + change];
+    let dayInMonth = date.getDate() + change;
+
+    if (change + date.getDay() > 7) {
+      change = (change + date.getDay() - 1) % 7;
+    } else {
+      change = change + (date.getDay() - 1);
+    }
+
+    if (change < 0) change = 0;
+
+    let day = days[change];
     let month = months[date.getMonth()];
     let year = date.getFullYear();
 
-    let formattedDate = `Today is ${day} ${month} ${dayInMonth} ${year}`;
+    let formattedDate;
+    if (dayInMonth === date.getDate())
+      formattedDate = `Today is ${day} ${month} ${dayInMonth} ${year}`;
+    else
+      formattedDate = `${count} days from today is ${day} ${month} ${dayInMonth} ${year}`;
 
     return formattedDate;
   }

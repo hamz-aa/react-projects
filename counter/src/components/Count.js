@@ -5,17 +5,23 @@ export function Count({ steps, setDate, dateHandler }) {
 
   function countHandler() {
     if (count < 0) setCount(0);
+    console.log(steps);
     return count;
   }
 
   function increment() {
     setCount((prev) => prev + steps);
-    setDate(() => dateHandler(count));
+    countHandler();
+    setDate(() => dateHandler(count + 1));
   }
 
   function decrement() {
-    setCount((prev) => prev - steps);
-    setDate(() => dateHandler(count));
+    setCount((prev) => {
+      console.log(prev);
+      return prev - steps;
+    });
+    if (count < 0) console.log(count, "==> count");
+    setDate(() => dateHandler(count - 1));
   }
 
   return (
