@@ -1,6 +1,18 @@
 import React from "react";
 
-export const Item = () => {
+export const Item = ({ id, item, items, setItems }) => {
+  function checkHandler() {
+    const newItems = [...items];
+    newItems[id].isChecked = !item.isChecked;
+    setItems(newItems);
+  }
+
+  function removeItemHandler() {
+    const newItems = [...items];
+    newItems.splice(id, 1);
+    setItems(newItems);
+  }
+
   return (
     <div
       style={{
@@ -11,8 +23,15 @@ export const Item = () => {
       <input
         type="checkbox"
         style={{ width: "15px", height: "15px", marginTop: "0.3em" }}
+        checked={item.isChecked}
+        onClick={checkHandler}
       />
-      <p style={{ color: "white" }}>1 Sock</p>
+      <p
+        style={{
+          color: "white",
+          textDecoration: item.isChecked && "line-through",
+        }}
+      >{`${item.quantity} ${item.value}`}</p>
       <button
         style={{
           border: "none",
@@ -20,6 +39,7 @@ export const Item = () => {
           backgroundColor: "transparent",
           cursor: "pointer",
         }}
+        onClick={removeItemHandler}
       >
         ❌
       </button>
