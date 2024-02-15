@@ -61,5 +61,5 @@ select {
 
 .items div {
   padding: 1.5em;
-  place-self: center;
+  place-self: baseline;
 }

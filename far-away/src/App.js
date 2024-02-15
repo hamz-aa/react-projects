@@ -6,13 +6,12 @@ import { Stats } from "./components/Stats";
 
 function App() {
   const [items, setItems] = useState([]);
-  console.log(items);
   return (
     <div>
       <Logo />
       <Form items={items} setItems={setItems} />
-      <PackingList items={items} />
-      <Stats />
+      <PackingList items={items} setItems={setItems} />
+      <Stats items={items} />
     </div>
   );
 }

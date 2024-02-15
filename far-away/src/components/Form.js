@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRef } from "react";
 
 export const Form = ({ items, setItems }) => {
-  let numValue, inpValue;
+  const [numValue, setNumValue] = useState(1);
+  const [inpValue, setInpValue] = useState();
+  const [order, setOrder] = useState(1);
+
+  const inpRef = useRef("");
 
   function insertItem() {
+    if (
+      numValue === undefined ||
+      inpValue === undefined ||
+      inpValue.trim() === ""
+    )
+      return;
     setItems([
       ...items,
-      { quantity: numValue, value: inpValue, isChecked: false },
+      { order: order, quantity: numValue, value: inpValue, isChecked: false },
     ]);
+    inpRef.current.value = "";
+    setInpValue("");
+    setOrder(order + 1);
   }
 
   return (
@@ -29,10 +43,12 @@ export const Form = ({ items, setItems }) => {
         name=""
         id=""
         style={{ fontWeight: "600" }}
-        onChange={(e) => (numValue = e.target.value)}
+        onChange={(e) => setNumValue(e.target.value)}
       >
-        {Array.from({ length: 20 }, (_, i) => i + 1).map((el) => (
-          <option value={el}>{el}</option>
+        {Array.from({ length: 20 }, (_, i) => i + 1).map((el, index) => (
+          <option id={index} value={el}>
+            {el}
+          </option>
         ))}
       </select>
       <input
@@ -40,7 +56,8 @@ export const Form = ({ items, setItems }) => {
         name=""
         id=""
         placeholder="item..."
-        onChange={(e) => (inpValue = e.target.value)}
+        onChange={(e) => setInpValue(e.target.value)}
+        ref={inpRef}
       />
       <button
         style={{
