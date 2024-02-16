@@ -16,7 +16,7 @@ function App() {
       isPayed: null,
     },
     {
-      name: "Ahsa",
+      name: "John",
       imgUrl:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVA_HrQLjkHiJ2Ag5RGuwbFeDKRLfldnDasw&usqp=CAU",
       totalBill: 0,
@@ -33,7 +33,11 @@ function App() {
   return (
     <div className="app">
       <div className="left-sec">
-        <FriendsList friendsList={friendsList} setFriend={setFriend} />
+        <FriendsList
+          friendsList={friendsList}
+          setFriend={setFriend}
+          friend={friend}
+        />
         {flag && (
           <AddFriend
             friendsList={friendsList}

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function Friend({ friend, setFriend }) {
+function Friend({ friend, setStatus, status }) {
   let defaultText;
   if (friend.totalBill === 0) defaultText = `You and ${friend.name} are even`;
   else if (friend.isPayed === false)
@@ -7,10 +7,10 @@ function Friend({ friend, setFriend }) {
   else defaultText = `You owe ${friend.name} $${friend.bill}`;
 
   function selectFriend() {
-    if (friend) {
-      setFriend(null);
+    if (status && status.name === friend.name) {
+      setStatus(null);
     } else {
-      setFriend(friend);
+      setStatus(friend);
     }
   }
 
@@ -21,7 +21,9 @@ function Friend({ friend, setFriend }) {
         <p>{friend.name}</p>
         <p>{defaultText}</p>
       </div>
-      <button onClick={selectFriend}>{friend ? "Close" : "Select"}</button>
+      <button onClick={selectFriend}>
+        {status && status.name === friend.name ? "Close" : "Select"}
+      </button>
     </div>
   );
 }

@@ -14,8 +14,6 @@ function AddFriend({ friendsList, setFriendsList }) {
         isPayed: null,
       },
     ]);
-
-    console.log(friendsList);
   }
 
   return (
