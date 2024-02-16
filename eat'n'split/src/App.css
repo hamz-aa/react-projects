@@ -2,30 +2,25 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .app {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
   gap: 50px;
 }
 
-.left-sec > * {
+.left-sec > div {
   margin-block: 20px;
-}
-
-.friendsList {
-  /* display: flex; */
 }
 
 .friend {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-block: 15px;
+  padding: 1em 1.5em;
 }
 
 .friend img {
@@ -56,15 +51,24 @@ button {
   margin-left: 20px;
 }
 
-.addFriend {
+.addFriend,
+.split-bill {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   padding: 0.5em;
+  background-color: #fcf2e0;
+  color: black;
+  padding: 1em 2em;
 }
 
-.addFriend button {
+.addFriend {
+  padding: 1em 1.5em;
+}
+
+.addFriend button,
+.split-bill button {
   align-self: flex-end;
 }
 
@@ -73,18 +77,59 @@ button {
   width: 150px;
 }
 
-.addFriend input {
+.split-bill button,
+.split-bill input {
+  width: 100px;
+}
+
+.addFriend input,
+.split-bill input {
   border: none;
   outline: none;
   padding: 0.5em 0.7em;
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  color: black;
 }
 
-.addFriend label {
+.addFriend label,
+.split-bill label {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.addFriend > * {
+.addFriend > *,
+.split-bill > * {
   margin-block: 10px;
+}
+
+.split-bill h3 {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.split-bill > label {
+  gap: 50px;
+}
+
+.split-bill > label > select {
+  width: 100px;
+  text-align: center;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 0.5em 0.7em;
+}
+
+.app > .left-sec > button {
+  display: block;
+  margin-left: auto;
+  margin-right: 2em;
+}
+
+.friend:hover {
+  background-color: #fcf2e0;
 }

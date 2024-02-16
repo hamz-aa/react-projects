@@ -2,11 +2,11 @@
 /* eslint-disable react/jsx-key */
 import Friend from "./Friend";
 
-function FriendsList({ friendsList }) {
+function FriendsList({ friendsList, setFriend }) {
   return (
     <div className="friendsList">
       {friendsList.map((friend) => (
-        <Friend friend={friend} />
+        <Friend friend={friend} setFriend={setFriend} />
       ))}
     </div>
   );
