@@ -19,6 +19,7 @@
 .friend {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 15px;
   padding: 1em 1.5em;
 }
@@ -120,6 +121,7 @@ button {
   background-color: #fff;
   color: #000;
   border: none;
+  outline: none;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 0.5em 0.7em;
 }

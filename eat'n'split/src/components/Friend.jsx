@@ -6,6 +6,14 @@ function Friend({ friend, setFriend }) {
     defaultText = `${friend.name} owes you $${friend.bill}`;
   else defaultText = `You owe ${friend.name} $${friend.bill}`;
 
+  function selectFriend() {
+    if (friend) {
+      setFriend(null);
+    } else {
+      setFriend(friend);
+    }
+  }
+
   return (
     <div className="friend">
       <img src={friend.imgUrl} alt="" />
@@ -13,7 +21,7 @@ function Friend({ friend, setFriend }) {
         <p>{friend.name}</p>
         <p>{defaultText}</p>
       </div>
-      <button onClick={() => setFriend(friend)}>Select</button>
+      <button onClick={selectFriend}>{friend ? "Close" : "Select"}</button>
     </div>
   );
 }

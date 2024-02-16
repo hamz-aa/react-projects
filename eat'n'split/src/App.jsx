@@ -16,7 +16,7 @@ function App() {
       isPayed: null,
     },
     {
-      name: "Hamza",
+      name: "Ahsa",
       imgUrl:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVA_HrQLjkHiJ2Ag5RGuwbFeDKRLfldnDasw&usqp=CAU",
       totalBill: 0,
@@ -26,29 +26,32 @@ function App() {
     },
   ]);
 
-  const [friend, setFriend] = useState({
-    name: "Hamza",
-    imgUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVA_HrQLjkHiJ2Ag5RGuwbFeDKRLfldnDasw&usqp=CAU",
-    totalBill: 0,
-    friendExpense: 0,
-    myExpense: 0,
-    isPayed: null,
-  });
+  const [friend, setFriend] = useState();
+
+  const [flag, setFlag] = useState(false);
 
   return (
     <div className="app">
       <div className="left-sec">
         <FriendsList friendsList={friendsList} setFriend={setFriend} />
-        <AddFriend setFriendsList={setFriendsList} />
-        <button>Close</button>
+        {flag && (
+          <AddFriend
+            friendsList={friendsList}
+            setFriendsList={setFriendsList}
+          />
+        )}
+        <button onClick={() => setFlag(!flag)}>
+          {flag ? "Close" : "Add Friend"}
+        </button>
       </div>
       <div className="right-sec">
-        <SplitBill
-          friendsList={friendsList}
-          setFriendsList={setFriendsList}
-          friend={friend}
-        />
+        {friend && (
+          <SplitBill
+            friendsList={friendsList}
+            setFriendsList={setFriendsList}
+            friend={friend}
+          />
+        )}
       </div>
     </div>
   );

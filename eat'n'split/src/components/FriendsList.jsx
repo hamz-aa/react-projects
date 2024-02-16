@@ -5,7 +5,7 @@ import Friend from "./Friend";
 function FriendsList({ friendsList, setFriend }) {
   return (
     <div className="friendsList">
-      {friendsList.map((friend) => (
+      {friendsList?.map((friend) => (
         <Friend friend={friend} setFriend={setFriend} />
       ))}
     </div>
