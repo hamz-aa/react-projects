@@ -91,6 +91,7 @@ button {
   background-color: #fff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   color: black;
+  margin-left: 20px;
 }
 
 .addFriend label,
@@ -134,4 +135,9 @@ button {
 
 .friend:hover {
   background-color: #fcf2e0;
+}
+
+h1 {
+  position: absolute;
+  top: 5%;
 }

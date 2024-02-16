@@ -5,26 +5,7 @@ import FriendsList from "./components/FriendsList";
 import SplitBill from "./components/SplitBill";
 
 function App() {
-  const [friendsList, setFriendsList] = useState([
-    {
-      name: "Hamza",
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVA_HrQLjkHiJ2Ag5RGuwbFeDKRLfldnDasw&usqp=CAU",
-      totalBill: 0,
-      friendExpense: 0,
-      myExpense: 0,
-      isPayed: null,
-    },
-    {
-      name: "John",
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVA_HrQLjkHiJ2Ag5RGuwbFeDKRLfldnDasw&usqp=CAU",
-      totalBill: 0,
-      friendExpense: 0,
-      myExpense: 0,
-      isPayed: null,
-    },
-  ]);
+  const [friendsList, setFriendsList] = useState([]);
 
   const [friend, setFriend] = useState();
 
@@ -32,6 +13,7 @@ function App() {
 
   return (
     <div className="app">
+      <h1>Eat'n'Split</h1>
       <div className="left-sec">
         <FriendsList
           friendsList={friendsList}
