@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 /* eslint-disable react/prop-types */
-function AddFriend({ friendsList, setFriendsList }) {
+function AddFriend({ friendsList, setFriendsList, setHandleFlag }) {
   let imgValue;
 
   const [flag, setFlag] = useState(false);
@@ -67,7 +67,14 @@ function AddFriend({ friendsList, setFriendsList }) {
           onChange={(e) => (imgValue = e.target.value)}
         />
       </label>
-      <button onClick={addFriend}>Add</button>
+      <button
+        onClick={() => {
+          addFriend();
+          setHandleFlag();
+        }}
+      >
+        Add
+      </button>
     </div>
   );
 }

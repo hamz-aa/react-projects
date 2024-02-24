@@ -21,7 +21,11 @@ function Friend({ friend, setStatus, status }) {
   }
 
   return (
-    <div className="friend">
+    <div
+      className={
+        status && status.name === friend.name ? "friend active" : "friend"
+      }
+    >
       <img src={friend.imgUrl} alt="" />
       <div className="info">
         <p>{friend.name}</p>

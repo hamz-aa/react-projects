@@ -11,6 +11,10 @@ function App() {
 
   const [flag, setFlag] = useState(false);
 
+  const handleFlag = () => {
+    setFlag(!flag);
+  };
+
   return (
     <div className="app">
       <h1>Eat'n'Split</h1>
@@ -24,11 +28,10 @@ function App() {
           <AddFriend
             friendsList={friendsList}
             setFriendsList={setFriendsList}
+            setHandleFlag={handleFlag}
           />
         )}
-        <button onClick={() => setFlag(!flag)}>
-          {flag ? "Close" : "Add Friend"}
-        </button>
+        <button onClick={handleFlag}>{flag ? "Close" : "Add Friend"}</button>
       </div>
       <div className="right-sec">
         {friend && (

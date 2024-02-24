@@ -5,8 +5,8 @@ import Friend from "./Friend";
 function FriendsList({ friendsList, setFriend, friend }) {
   return (
     <div className="friendsList">
-      {friendsList?.map((el) => (
-        <Friend friend={el} setStatus={setFriend} status={friend} />
+      {friendsList?.map((el, i) => (
+        <Friend friend={el} setStatus={setFriend} status={friend} key={i} />
       ))}
     </div>
   );
